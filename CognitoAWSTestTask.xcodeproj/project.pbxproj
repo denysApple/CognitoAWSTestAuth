@@ -8,18 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		BC9F4D402A28C66D00B71A90 /* CognitoAWSTestTaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9F4D3F2A28C66D00B71A90 /* CognitoAWSTestTaskApp.swift */; };
-		BC9F4D422A28C66D00B71A90 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9F4D412A28C66D00B71A90 /* ContentView.swift */; };
+		BC9F4D422A28C66D00B71A90 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9F4D412A28C66D00B71A90 /* LoginView.swift */; };
 		BC9F4D442A28C66E00B71A90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC9F4D432A28C66E00B71A90 /* Assets.xcassets */; };
 		BC9F4D482A28C66E00B71A90 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC9F4D472A28C66E00B71A90 /* Preview Assets.xcassets */; };
+		BC9F4D4F2A28C70700B71A90 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9F4D4E2A28C70700B71A90 /* RegisterView.swift */; };
+		BC9F4D522A28C8F900B71A90 /* AWSCognitoAuthPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = BC9F4D512A28C8F900B71A90 /* AWSCognitoAuthPlugin */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BC9F4D3C2A28C66D00B71A90 /* CognitoAWSTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CognitoAWSTestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC9F4D3F2A28C66D00B71A90 /* CognitoAWSTestTaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CognitoAWSTestTaskApp.swift; sourceTree = "<group>"; };
-		BC9F4D412A28C66D00B71A90 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BC9F4D412A28C66D00B71A90 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		BC9F4D432A28C66E00B71A90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC9F4D452A28C66E00B71A90 /* CognitoAWSTestTask.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CognitoAWSTestTask.entitlements; sourceTree = "<group>"; };
 		BC9F4D472A28C66E00B71A90 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BC9F4D4E2A28C70700B71A90 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC9F4D522A28C8F900B71A90 /* AWSCognitoAuthPlugin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,10 +57,11 @@
 			isa = PBXGroup;
 			children = (
 				BC9F4D3F2A28C66D00B71A90 /* CognitoAWSTestTaskApp.swift */,
-				BC9F4D412A28C66D00B71A90 /* ContentView.swift */,
+				BC9F4D412A28C66D00B71A90 /* LoginView.swift */,
 				BC9F4D432A28C66E00B71A90 /* Assets.xcassets */,
 				BC9F4D452A28C66E00B71A90 /* CognitoAWSTestTask.entitlements */,
 				BC9F4D462A28C66E00B71A90 /* Preview Content */,
+				BC9F4D4E2A28C70700B71A90 /* RegisterView.swift */,
 			);
 			path = CognitoAWSTestTask;
 			sourceTree = "<group>";
@@ -85,6 +90,9 @@
 			dependencies = (
 			);
 			name = CognitoAWSTestTask;
+			packageProductDependencies = (
+				BC9F4D512A28C8F900B71A90 /* AWSCognitoAuthPlugin */,
+			);
 			productName = CognitoAWSTestTask;
 			productReference = BC9F4D3C2A28C66D00B71A90 /* CognitoAWSTestTask.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +121,9 @@
 				Base,
 			);
 			mainGroup = BC9F4D332A28C66D00B71A90;
+			packageReferences = (
+				BC9F4D502A28C8F900B71A90 /* XCRemoteSwiftPackageReference "amplify-swift" */,
+			);
 			productRefGroup = BC9F4D3D2A28C66D00B71A90 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -139,7 +150,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC9F4D422A28C66D00B71A90 /* ContentView.swift in Sources */,
+				BC9F4D4F2A28C70700B71A90 /* RegisterView.swift in Sources */,
+				BC9F4D422A28C66D00B71A90 /* LoginView.swift in Sources */,
 				BC9F4D402A28C66D00B71A90 /* CognitoAWSTestTaskApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,6 +366,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BC9F4D502A28C8F900B71A90 /* XCRemoteSwiftPackageReference "amplify-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aws-amplify/amplify-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BC9F4D512A28C8F900B71A90 /* AWSCognitoAuthPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC9F4D502A28C8F900B71A90 /* XCRemoteSwiftPackageReference "amplify-swift" */;
+			productName = AWSCognitoAuthPlugin;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BC9F4D342A28C66D00B71A90 /* Project object */;
 }

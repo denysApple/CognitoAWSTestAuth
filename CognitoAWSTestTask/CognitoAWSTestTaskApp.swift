@@ -11,7 +11,9 @@ import SwiftUI
 struct CognitoAWSTestTaskApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack {
+                LoginView()
+            }
         }
     }
 }
