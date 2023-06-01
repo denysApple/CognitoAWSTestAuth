@@ -6,9 +6,9 @@
 //
 
 import SwiftUI
+import Combine
 import Amplify
 import AWSCognitoAuthPlugin
-import Combine
 
 class AuthService {
     public static let shared = AuthService()
@@ -16,82 +16,79 @@ class AuthService {
     private init() {}
     
     func prepare() {
+        Amplify.Logging.logLevel = .verbose
+//        let userPoolId = "eu-west-2_NmLwY3r0C"
+//        let clientId = "3q79blhdt21ef4lc3sed3mj241"
+        
         do {
             try Amplify.add(plugin: AWSCognitoAuthPlugin())
-//            let config = AmplifyConfiguration(configurationFile: <#T##URL#>)
             try Amplify.configure()
-            print("Amplify configured with auth plugin")
+            
+            print("Amplify configured successfully")
         } catch {
-            print("Failed to initialize Amplify with \(error)")
+            print("Failed to configure Amplify with error: \(error)")
         }
     }
     
-    func fetchCurrentAuthSession() -> AnyCancellable {
-        Amplify.Publisher.create {
-            try await Amplify.Auth.fetchAuthSession()
-        }.sink {
-            if case let .failure(authError) = $0 {
-                print("Fetch session failed with error \(authError)")
-            }
-        }
-        receiveValue: { session in
+    func fetchCurrentAuthSession() async {
+        do {
+            let session = try await Amplify.Auth.fetchAuthSession()
             print("Is user signed in - \(session.isSignedIn)")
+        } catch let error as AuthError {
+            print("Fetch session failed with error \(error)")
+        } catch {
+            print("Unexpected error: \(error)")
         }
     }
     
-    func signUp(username: String, password: String, email: String) -> AnyCancellable {
+    func signUp(username: String, password: String, email: String) async {
         let userAttributes = [AuthUserAttribute(.email, value: email)]
         let options = AuthSignUpRequest.Options(userAttributes: userAttributes)
-        return Amplify.Publisher.create {
-            try await Amplify.Auth.signUp(
+        do {
+            let signUpResult = try await Amplify.Auth.signUp(
                 username: username,
                 password: password,
                 options: options
             )
-        }.sink {
-            if case let .failure(authError) = $0 {
-                print("An error occurred while registering a user \(authError)")
-            }
-        }
-        receiveValue: { signUpResult in
             if case let .confirmUser(deliveryDetails, _, userId) = signUpResult.nextStep {
-                print("Delivery details \(String(describing: deliveryDetails)) for userId: \(String(describing: userId)))")
+                print("Delivery details \(String(describing: deliveryDetails)) for userId: \(String(describing: userId))")
             } else {
                 print("SignUp Complete")
             }
-            
+        } catch let error as AuthError {
+            print("An error occurred while registering a user \(error)")
+        } catch {
+            print("Unexpected error: \(error)")
         }
     }
     
-    func confirmSignUp(for username: String, with confirmationCode: String) -> AnyCancellable {
-        Amplify.Publisher.create {
-            try await Amplify.Auth.confirmSignUp(
+    func confirmSignUp(for username: String, with confirmationCode: String) async {
+        do {
+            let confirmSignUpResult = try await Amplify.Auth.confirmSignUp(
                 for: username,
                 confirmationCode: confirmationCode
             )
-        }.sink {
-            if case let .failure(authError) = $0 {
-                print("An error occurred while confirming sign up \(authError)")
-            }
-        } receiveValue: { _ in
-            print("Confirm signUp succeeded")
+            print("Confirm sign up result completed: \(confirmSignUpResult.isSignUpComplete)")
+        } catch let error as AuthError {
+            print("An error occurred while confirming sign up \(error)")
+        } catch {
+            print("Unexpected error: \(error)")
         }
     }
     
-    func signIn(username: String, password: String) -> AnyCancellable {
-        Amplify.Publisher.create {
-            try await try await Amplify.Auth.signIn(
+    func signIn(username: String, password: String) async {
+        do {
+            let signInResult = try await Amplify.Auth.signIn(
                 username: username,
                 password: password
-            )
-        }.sink {
-            if case let .failure(authError) = $0 {
-                print("Sign in failed \(authError)")
-            }
-        } receiveValue: { signInResult in
+                )
             if signInResult.isSignedIn {
                 print("Sign in succeeded")
             }
+        } catch let error as AuthError {
+            print("Sign in failed \(error)")
+        } catch {
+            print("Unexpected error: \(error)")
         }
     }
 }
