@@ -11,13 +11,13 @@ struct RegisterView: View {
     var body: some View {
         VStack {
             
-            
             Button(action: {
                 
             }, label: {
                 Text("Sign up")
             })
         }
+        .navigationTitle("Registration")
     }
 }
 

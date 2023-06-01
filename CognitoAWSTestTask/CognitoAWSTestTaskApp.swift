@@ -16,4 +16,8 @@ struct CognitoAWSTestTaskApp: App {
             }
         }
     }
+    
+    init() {
+        AuthService.shared.prepare()
+    }
 }

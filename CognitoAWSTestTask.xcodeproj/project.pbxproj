@@ -13,6 +13,7 @@
 		BC9F4D482A28C66E00B71A90 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC9F4D472A28C66E00B71A90 /* Preview Assets.xcassets */; };
 		BC9F4D4F2A28C70700B71A90 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9F4D4E2A28C70700B71A90 /* RegisterView.swift */; };
 		BC9F4D522A28C8F900B71A90 /* AWSCognitoAuthPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = BC9F4D512A28C8F900B71A90 /* AWSCognitoAuthPlugin */; };
+		BC9F4D572A28CA4700B71A90 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9F4D562A28CA4700B71A90 /* AuthService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		BC9F4D452A28C66E00B71A90 /* CognitoAWSTestTask.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CognitoAWSTestTask.entitlements; sourceTree = "<group>"; };
 		BC9F4D472A28C66E00B71A90 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BC9F4D4E2A28C70700B71A90 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		BC9F4D562A28CA4700B71A90 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +58,12 @@
 		BC9F4D3E2A28C66D00B71A90 /* CognitoAWSTestTask */ = {
 			isa = PBXGroup;
 			children = (
+				BC9F4D582A28CB4D00B71A90 /* Services */,
+				BC9F4D552A28C95000B71A90 /* Components */,
 				BC9F4D3F2A28C66D00B71A90 /* CognitoAWSTestTaskApp.swift */,
-				BC9F4D412A28C66D00B71A90 /* LoginView.swift */,
 				BC9F4D432A28C66E00B71A90 /* Assets.xcassets */,
 				BC9F4D452A28C66E00B71A90 /* CognitoAWSTestTask.entitlements */,
 				BC9F4D462A28C66E00B71A90 /* Preview Content */,
-				BC9F4D4E2A28C70700B71A90 /* RegisterView.swift */,
 			);
 			path = CognitoAWSTestTask;
 			sourceTree = "<group>";
@@ -72,6 +74,31 @@
 				BC9F4D472A28C66E00B71A90 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BC9F4D532A28C93800B71A90 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				BC9F4D4E2A28C70700B71A90 /* RegisterView.swift */,
+				BC9F4D412A28C66D00B71A90 /* LoginView.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		BC9F4D552A28C95000B71A90 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				BC9F4D532A28C93800B71A90 /* Auth */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		BC9F4D582A28CB4D00B71A90 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BC9F4D562A28CA4700B71A90 /* AuthService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC9F4D4F2A28C70700B71A90 /* RegisterView.swift in Sources */,
+				BC9F4D572A28CA4700B71A90 /* AuthService.swift in Sources */,
 				BC9F4D422A28C66D00B71A90 /* LoginView.swift in Sources */,
 				BC9F4D402A28C66D00B71A90 /* CognitoAWSTestTaskApp.swift in Sources */,
 			);

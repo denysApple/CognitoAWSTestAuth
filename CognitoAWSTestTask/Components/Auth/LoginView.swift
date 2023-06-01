@@ -20,11 +20,14 @@ struct LoginView: View {
             })
             
             Button(action: {
-                
+                isRegister.toggle()
             }, label: {
                 Text("Register")
             })
         }
+        .navigationDestination(isPresented: $isRegister, destination: {
+            RegisterView()
+        })
         .navigationTitle("Login")
         .padding()
     }
