@@ -16,10 +16,6 @@ class AuthService {
     private init() {}
     
     func prepare() {
-        Amplify.Logging.logLevel = .verbose
-//        let userPoolId = "eu-west-2_NmLwY3r0C"
-//        let clientId = "3q79blhdt21ef4lc3sed3mj241"
-        
         do {
             try Amplify.add(plugin: AWSCognitoAuthPlugin())
             try Amplify.configure()

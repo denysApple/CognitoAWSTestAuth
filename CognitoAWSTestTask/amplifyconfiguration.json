@@ -8,7 +8,7 @@
                     "Default": {
                         "PoolId": "eu-west-2_NmLwY3r0C",
                         "AppClientId": "3q79blhdt21ef4lc3sed3mj241",
-                        "Region": "eu-west"
+                        "Region": "eu-west-2"
                     }
                 },
                 "Auth": {
